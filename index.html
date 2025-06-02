@@ -2,63 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sisyphus Fund</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      min-height: 100vh;
+      background-image: url('sisyphus.jpg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding: 2rem;
       text-align: center;
-      color: #222;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.75rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
     p {
       font-size: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    button {
-      font-size: 1rem;
-      padding: 0.8rem 1.2rem;
-      border: none;
-      border-radius: 5px;
+    a.button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
       background-color: #111;
-      color: white;
-      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s ease;
     }
 
-    button:hover {
-      background-color: #444;
+    a.button:hover {
+      background-color: #333;
     }
 
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
+      p { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <h1>Sisyphus Fund</h1>
-  <p>$10K checks in one meeting.</p>
-  <button onclick="copyEmail()">Contact us: 10Kchecks@sisyphus.fund</button>
-
-  <script>
-    function copyEmail() {
-      navigator.clipboard.writeText("10Kchecks@sisyphus.fund").then(() => {
-        alert("Email copied to clipboard!");
-      });
-    }
-  </script>
+  <div class="overlay">
+    <h1>Sisyphus Fund</h1>
+    <p>$10K checks in one meeting.</p>
+    <a class="button" href="mailto:10Kchecks@sisyphus.fund">Contact Us</a>
+  </div>
 </body>
 </html>
