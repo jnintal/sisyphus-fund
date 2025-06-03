@@ -1,87 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sisyphus Fund</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: url('sisyphus.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .overlay {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 2.5rem 3rem;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 500px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-      animation: fadeIn 1.2s ease;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #111;
-    }
-
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 1.8rem;
-      color: #222;
-    }
-
-    a.button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #111;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: background 0.2s ease;
-    }
-
-    a.button:hover {
-      background-color: #333;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1.2rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10K Checks For You With One Meeting!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Russo+One&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #1a0033, #330066, #000066);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            font-family: 'Orbitron', monospace;
+            color: #00ffff;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .marquee {
+            background: linear-gradient(90deg, #ff0080, #0080ff, #ff0080);
+            color: #ffffff;
+            padding: 15px 0;
+            font-family: 'Russo One', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.8);
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 15s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero h1 {
+            font-size: clamp(32px, 8vw, 80px);
+            font-weight: 900;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #0080ff;
+            margin-bottom: 30px;
+            animation: neonFlicker 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonFlicker {
+            0% { text-shadow: 0 0 20px #00ffff, 0 0 40px #0080ff; }
+            100% { text-shadow: 0 0 30px #00ffff, 0 0 60px #0080ff, 0 0 80px #ff0080; }
+        }
+        
+        .hero h2 {
+            font-size: clamp(18px, 4vw, 36px);
+            color: #ff0080;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0080, #0080ff);
+            color: white;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.6);
+            transition: all 0.3s ease;
+            animation: buttonGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 128, 0.6); }
+            50% { box-shadow: 0 0 50px rgba(255, 0, 128, 1), 0 0 70px rgba(0, 128, 255, 0.8); }
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 60px rgba(255, 0, 128, 1);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 128, 0.1), transparent);
+            animation: cardShine 3s linear infinite;
+        }
+        
+        @keyframes cardShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+            border-color: #ff0080;
+        }
+        
+        .feature-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff0080;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial {
+            background: rgba(255, 0, 128, 0.1);
+            border: 2px solid #ff0080;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 80px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial blockquote {
+            font-size: 24px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .testimonial cite {
+            font-size: 18px;
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: linear-gradient(45deg, #ff4444, #ff8800);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 40px;
+            animation: warningBlink 1s ease-in-out infinite;
+        }
+        
+        @keyframes warningBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .phone-number {
+            font-size: clamp(24px, 6vw, 48px);
+            font-weight: 900;
+            color: #ffff00;
+            text-shadow: 0 0 20px #ffff00;
+            margin: 40px 0;
+            letter-spacing: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .marquee { font-size: 18px; }
+            .hero { padding: 40px 20px; }
+            .features { padding: 40px 20px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>Sisyphus Fund</h1>
-    <p>$10K checks in one meeting.</p>
-    <a class="button" href="mailto:10Kchecks@sisyphus.fund">Contact Us</a>
-  </div>
+    <div class="marquee">
+        <div class="marquee-content">
+            🔥 CALL NOW! 1-800-10K-CHECK 🔥 LIMITED TIME OFFER! 🔥 ONE MEETING = $10,000 GUARANTEED! 🔥 CALL NOW! 1-800-10K-CHECK 🔥
+        </div>
+    </div>
+    
+    <div class="hero">
+        <h1>10K CHECKS FOR YOU!</h1>
+        <h2>With Just One Meeting!</h2>
+        <div class="phone-number">📞 1-800-10K-CHECK</div>
+        <p style="font-size: 20px; margin-bottom: 40px;">That's 1-800-105-2432!</p>
+        <a href="#" class="cta-button">GET YOUR CHECK NOW!</a>
+    </div>
+    
+    <div class="features">
+        <div class="feature-card">
+            <h3>⚡ ONE MEETING ONLY!</h3>
+            <p>No 47-round funding cycles! No endless pitch decks! Just ONE meeting and BOOM - you get your check! We're too busy counting money to waste time on multiple meetings!</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>💰 GUARANTEED $10K!</h3>
+            <p>Not $9,999! Not $10,001! EXACTLY ten thousand dollars! We've done the math (it's literally in our name) so you don't have to!</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>⏰ INSTANT DECISION!</h3>
+            <p>While other VCs are "circling back" and "syncing up," we're writing checks! Decision made in 60 minutes or your meeting is FREE!</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>🚀 NO EQUITY REQUIRED!</h3>
+            <p>Just kidding! We want 99.9% of your company. But hey, you still get to keep that sweet 0.1% AND ten grand!</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>🎯 ANY BUSINESS IDEA!</h3>
+            <p>Selling ice to penguins? FUNDED! App for cats? FUNDED! Blockchain-powered toasters? DOUBLE FUNDED! We literally cannot say no!</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>📱 CALL NOW!</h3>
+            <p>Our operators are standing by! (Actually, it's just Dave in his pajamas, but he's very enthusiastic about writing checks!)</p>
+        </div>
+    </div>
+    
+    <div class="testimonial">
+        <blockquote>
+            "I pitched my idea for a subscription service for pet rocks. They gave me $10,000 in 37 minutes! I'm still not sure what happened, but I'm not complaining!"
+        </blockquote>
+        <cite>- Sarah K., Pet Rock Entrepreneur</cite>
+    </div>
+    
+    <div class="testimonial">
+        <blockquote>
+            "Best $10k I ever received! Sure, they now own my firstborn child and my kidney, but the check cleared immediately!"
+        </blockquote>
+        <cite>- Mike T., Former Organ Owner</cite>
+    </div>
+    
+    <div style="text-align: center; padding: 80px 20px;">
+        <h2 style="font-size: 48px; margin-bottom: 30px; color: #ffff00;">DON'T WAIT!</h2>
+        <p style="font-size: 24px; margin-bottom: 40px;">This offer expires in... *checks notes* ...never! But call anyway!</p>
+        <div class="phone-number">📞 1-800-10K-CHECK</div>
+        <a href="#" class="cta-button" style="margin-top: 30px;">GET YOUR MONEY NOW!</a>
+    </div>
+    
+    <div class="warning">
+        ⚠️ WARNING: Side effects may include sudden wealth, uncontrollable excitement, and the urge to tell everyone about your funding. 
+        Not recommended for people allergic to money. Offer void where prohibited, which is probably nowhere because who prohibits free money? 
+        ⚠️
+    </div>
+    
+    <script>
+        // Add some extra cheesy interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make buttons extra flashy on click
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.style.animation = 'none';
+                    setTimeout(() => {
+                        this.style.animation = 'buttonGlow 0.5s ease-in-out infinite';
+                    }, 10);
+                    alert('🎉 CONGRATULATIONS! You\'ve taken the first step to your $10K! 🎉\n\n(Just kidding, this is a mock-up! But wouldn\'t that be nice?)');
+                });
+            });
+            
+            // Random money emoji shower
+            setInterval(() => {
+                const money = document.createElement('div');
+                money.innerHTML = '💰';
+                money.style.position = 'fixed';
+                money.style.top = '-50px';
+                money.style.left = Math.random() * window.innerWidth + 'px';
+                money.style.fontSize = '30px';
+                money.style.zIndex = '1000';
+                money.style.pointerEvents = 'none';
+                money.style.animation = 'fall 3s linear forwards';
+                document.body.appendChild(money);
+                
+                setTimeout(() => {
+                    money.remove();
+                }, 3000);
+            }, 2000);
+        });
+        
+        // Add falling money animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(calc(100vh + 50px)) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
